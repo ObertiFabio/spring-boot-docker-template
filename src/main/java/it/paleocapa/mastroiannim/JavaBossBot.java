@@ -60,13 +60,13 @@ public class JavaBossBot extends TelegramLongPollingBot {
 		listaCibo.add("speck-brie");
 		listaCibo.add("hamburger");
 		listaCibo.add("calzone");
-	
+
+
 		LinkedList<String> listaBere = new LinkedList<String>();
 		listaBere.add("acquaNaturale");
 		listaBere.add("cocaCola");
 		listaBere.add("ThePesca");
-	
-	
+
 		if (messaggio.equals("/cibo")) {
 			invioMessaggio.setText(
 				"listaCibo: \n paneCotoletta $2 \n focacciaProsciutto $2.50 \n panzerotto $1.50 \n speck-brie $2.50 \n hamburger $2 \n calzone $2"
@@ -81,8 +81,11 @@ public class JavaBossBot extends TelegramLongPollingBot {
 			);
 		} else if (messaggio.equals("/ordinacibo")) {
 			invioMessaggio.setText("scrivi tutti i prodotti di cui hai bisogno...");
+		} else if (messaggio.equals("/pulisciordinazioni")) {
+			listaOrdinazioni.clear();
+			invioMessaggio.setText("lista pulita");
 		}
-		 else if (messaggio.equals("/stampaordinazioni")) {
+		else if (messaggio.equals("/stampaordinazioni")) {
 			if (listaOrdinazioni.size() <= 0) {
 				invioMessaggio.setText("lista vuota");
 			} else {
